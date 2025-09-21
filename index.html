@@ -2,47 +2,50 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Félicitations mon amour 🎓💙</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto&display=swap" rel="stylesheet">
+  <title>Félicitations Royale 💖🎓</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Roboto', sans-serif;
-      text-align: center;
-      background: linear-gradient(135deg, #ffe6f0, #fff);
+      font-family: 'Playfair Display', serif;
+      background: linear-gradient(135deg, #2b1a0f, #4b2e1f);
       overflow-x: hidden;
+      color: #fff8e7;
+      text-align: center;
     }
 
     h1 {
       margin-top: 40px;
-      font-size: 2.5rem;
-      color: #ff4d6d;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      color: #f8d67e;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
     }
 
     button {
       margin-top: 30px;
-      padding: 15px 25px;
-      font-size: 18px;
+      padding: 15px 30px;
+      font-size: 20px;
       border: none;
-      border-radius: 50px;
-      background: linear-gradient(45deg, #ff4d6d, #ff85a1);
-      color: white;
+      border-radius: 30px;
+      background: linear-gradient(45deg, #b4863e, #ffd57e);
+      color: #2b1a0f;
       cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
       transition: 0.3s;
+      font-weight: bold;
     }
 
     button:hover {
-      background: linear-gradient(45deg, #ff2d6f, #ff5f8f);
-      transform: scale(1.05);
+      transform: scale(1.08);
+      background: linear-gradient(45deg, #ffd57e, #f8d67e);
     }
 
-    /* ✉️ Enveloppe */
+    /* Enveloppe Royale */
     .envelope {
       position: relative;
-      width: 320px;
-      height: 200px;
+      width: 350px;
+      height: 220px;
       margin: 60px auto;
       perspective: 1000px;
       display: none;
@@ -52,11 +55,13 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, #ff85a1, #ffcad4);
+      background: linear-gradient(135deg, #6b1f1f, #b53f3f);
       clip-path: polygon(0 0, 100% 0, 50% 50%);
       transform-origin: top;
-      transition: transform 1.2s;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 1.5s;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+      border: 2px solid #f8d67e;
+      border-bottom: none;
     }
 
     .envelope.open .flap {
@@ -69,14 +74,15 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: white;
-      padding: 20px;
+      background: linear-gradient(180deg, #fff8e7 0%, #f9f1dc 100%);
+      padding: 25px;
       box-sizing: border-box;
       opacity: 0;
       transform: translateY(50px);
-      transition: opacity 1s, transform 1s;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: opacity 1.5s, transform 1.5s;
+      border-radius: 10px;
+      border: 3px solid #f8d67e;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
       z-index: -1;
     }
 
@@ -88,103 +94,99 @@
 
     .letter p {
       font-family: 'Great Vibes', cursive;
-      font-size: 28px;
-      color: #ff4d6d;
-      margin: 0;
+      font-size: 26px;
+      color: #6b1f1f;
+      line-height: 1.6;
     }
 
     .letter img {
       margin-top: 15px;
       max-width: 100%;
       border-radius: 12px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+      border: 2px solid #f8d67e;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.3);
     }
 
-    /* 🎓 Chapeau */
-    .hat {
-      position: absolute;
-      top: -100px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 50px;
-      animation: fall 4s infinite;
+    /* Paillettes dorées */
+    .sparkle {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      background: gold;
+      border-radius: 50%;
+      top: -10px;
+      animation: fall 4s linear infinite;
+      opacity: 0.8;
     }
 
     @keyframes fall {
-      0% { top: -100px; opacity: 1; }
-      100% { top: 100vh; opacity: 0; }
-    }
-
-    /* 🎉 Confettis */
-    .confetti {
-      position: fixed;
-      width: 10px;
-      height: 10px;
-      top: -10px;
-      animation: fallConfetti 3s linear infinite;
-    }
-
-    @keyframes fallConfetti {
       0% { transform: translateY(0) rotate(0deg); }
-      100% { transform: translateY(100vh) rotate(720deg); }
+      100% { transform: translateY(100vh) rotate(360deg); opacity:0; }
     }
 
-    /* 💖 Cœurs flottants */
+    /* Cœurs royaux */
     .heart {
       position: fixed;
       bottom: 0;
-      color: #ff4d6d;
+      color: #f8d67e;
       font-size: 20px;
-      animation: floatUp 5s linear infinite;
+      animation: floatUp 6s linear infinite;
     }
 
     @keyframes floatUp {
-      0% { transform: translateY(0) scale(1); opacity: 1; }
-      100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+      0% { transform: translateY(0) scale(1); opacity:1; }
+      100% { transform: translateY(-100vh) scale(1.5); opacity:0; }
+    }
+
+    /* Sceau de cire */
+    .seal {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: radial-gradient(circle at 30% 30%, #f8d67e 0%, #b4863e 80%);
+      border-radius: 50%;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 10px rgba(248,214,126,0.7);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { transform: translateX(-50%) scale(1); }
+      50% { transform: translateX(-50%) scale(1.1); }
     }
   </style>
 </head>
 <body>
 
-  <h1>🎓 Félicitations mon amour 💙</h1>
-  <button onclick="showEnvelope()">💌 Ouvre ta lettre</button>
+  <h1>🎓 Félicitations Royale 💖</h1>
+  <button onclick="openEnvelope()">Ouvre ta lettre Royale 💌</button>
 
   <div class="envelope" id="envelope">
     <div class="flap"></div>
     <div class="letter">
-      <p>Mon amour, aujourd’hui tu reçois ton diplôme 🎓  
-      et je suis si fière de toi 💙  
-      Même à distance, je célèbre avec toi ✨  
-      Je t’aime infiniment 💕</p>
+      <p>Mon amour, aujourd’hui tu reçois ton diplôme 🎓<br>
+      Et je célèbre chaque instant avec toi, même à distance 💖<br>
+      Tu es mon roi, mon trésor, et je t’aime infiniment 👑</p>
       <img src="https://via.placeholder.com/220x280.png?text=Moi+💋" alt="Photo de moi">
+      <div class="seal"></div>
     </div>
   </div>
 
-  <div class="hat">🎓</div>
-
   <script>
-    // 🎉 Confettis
-    function createConfetti() {
-      const confetti = document.createElement("div");
-      confetti.classList.add("confetti");
-      confetti.style.left = Math.random() * window.innerWidth + "px";
-      confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-      confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
-      confetti.style.width = confetti.style.height = (Math.random() * 8 + 4) + "px";
-      document.body.appendChild(confetti);
-      setTimeout(() => { confetti.remove(); }, 5000);
+    // Paillettes dorées
+    function createSparkle() {
+      const s = document.createElement("div");
+      s.classList.add("sparkle");
+      s.style.left = Math.random() * window.innerWidth + "px";
+      s.style.width = s.style.height = (Math.random() * 6 + 4) + "px";
+      document.body.appendChild(s);
+      setTimeout(() => { s.remove(); }, 4000);
     }
-    setInterval(createConfetti, 200);
+    setInterval(createSparkle, 150);
 
-    // ✉️ Ouvrir enveloppe
-    function showEnvelope() {
-      document.getElementById("envelope").style.display = "block";
-      setTimeout(() => {
-        document.getElementById("envelope").classList.add("open");
-      }, 200);
-    }
-
-    // 💖 Cœurs
+    // Cœurs flottants
     function createHeart() {
       const heart = document.createElement("div");
       heart.classList.add("heart");
@@ -192,9 +194,15 @@
       heart.style.fontSize = (Math.random() * 20 + 15) + "px";
       heart.innerHTML = "❤️";
       document.body.appendChild(heart);
-      setTimeout(() => { heart.remove(); }, 5000);
+      setTimeout(() => { heart.remove(); }, 6000);
     }
-    setInterval(createHeart, 800);
+    setInterval(createHeart, 700);
+
+    // Ouvrir enveloppe
+    function openEnvelope() {
+      document.getElementById("envelope").style.display = "block";
+      setTimeout(() => { document.getElementById("envelope").classList.add("open"); }, 200);
+    }
   </script>
 </body>
 </html>
