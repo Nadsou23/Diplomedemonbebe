@@ -99,13 +99,18 @@
       line-height: 1.6;
     }
 
-    .letter img {
-      margin-top: 15px;
-      max-width: 100%;
-      border-radius: 12px;
-      border: 2px solid #f8d67e;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.3);
-    }
+  .letter img {
+  margin-top: 15px;
+  max-width: 100%;      /* prend presque toute la largeur de la lettre */
+  max-height: 80%;      /* prend jusqu'à 80% de la hauteur de la lettre */
+  border-radius: 12px;
+  border: 3px solid #f8d67e;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 
     /* Paillettes dorées */
     .sparkle {
@@ -169,7 +174,7 @@
       <p>Mon amour, aujourd’hui tu reçois ton diplôme 🎓<br>
       Et je célèbre chaque instant avec toi, même à distance 💖<br>
       Tu es mon roi, mon trésor, et je t’aime infiniment 👑</p>
-      <img src="https://via.placeholder.com/220x280.png?text=Moi+💋" alt="Photo de moi">
+      <img src="gifdiploma" alt="GIF du diplôme">
       <div class="seal"></div>
     </div>
   </div>
