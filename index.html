@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Félicitations mon amour 🎓❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background: #f9f7f7;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      margin-top: 50px;
+      font-size: 2.5rem;
+      color: #333;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 15px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      background: #ff5f8f;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #ff2d6f;
+      transform: scale(1.05);
+    }
+
+    /* ✉️ Enveloppe */
+    .envelope {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      margin: 60px auto;
+      perspective: 1000px;
+      display: none;
+    }
+
+    .envelope .flap {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #ffcad4;
+      clip-path: polygon(0 0, 100% 0, 50% 50%);
+      transform-origin: top;
+      transition: transform 1s;
+    }
+
+    .envelope.open .flap {
+      transform: rotateX(-180deg);
+    }
+
+    .letter {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: white;
+      padding: 20px;
+      box-sizing: border-box;
+      opacity: 0;
+      transition: opacity 1s;
+      z-index: -1;
+    }
+
+    .envelope.open .letter {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .letter p {
+      font-size: 16px;
+      color: #444;
+    }
+
+    .letter img {
+      margin-top: 10px;
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    /* 🎓 Chapeau */
+    .hat {
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 50px;
+      animation: fall 4s infinite;
+    }
+
+    @keyframes fall {
+      0% { top: -100px; opacity: 1; }
+      100% { top: 100vh; opacity: 0; }
+    }
+
+    /* 🎉 Confettis */
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background: red;
+      top: -10px;
+      animation: fallConfetti 3s linear infinite;
+    }
+
+    @keyframes fallConfetti {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(720deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎓 Félicitations mon amour ❤️</h1>
+  <button onclick="showEnvelope()">Ouvre ta lettre</button>
+
+  <div class="envelope" id="envelope">
+    <div class="flap"></div>
+    <div class="letter">
+      <p>Mon amour, même si je ne suis pas à tes côtés aujourd'hui, je suis si fière de toi.  
+      Félicitations pour ton diplôme 🎓.  
+      Tu es mon inspiration et je t’aime plus que tout ❤️</p>
+      <!-- Tu peux remplacer cette image par une tienne -->
+      <img src="https://via.placeholder.com/200x250.png?text=Moi+💋" alt="Photo de moi">
+    </div>
+  </div>
+
+  <div class="hat">🎓</div>
+
+  <script>
+    // 🎉 Confettis aléatoires
+    function createConfetti() {
+      const confetti = document.createElement("div");
+      confetti.classList.add("confetti");
+      confetti.style.left = Math.random() * window.innerWidth + "px";
+      confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      document.body.appendChild(confetti);
+
+      setTimeout(() => { confetti.remove(); }, 5000);
+    }
+
+    setInterval(createConfetti, 200);
+
+    // ✉️ Ouvrir enveloppe
+    function showEnvelope() {
+      document.getElementById("envelope").style.display = "block";
+      setTimeout(() => {
+        document.getElementById("envelope").classList.add("open");
+      }, 200);
+    }
+  </script>
+</body>
+</html>
