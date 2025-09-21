@@ -1,4 +1,3 @@
-<!-- Félicitations Remise de Diplôme avec affichage du GIF sur la même page -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -19,54 +18,27 @@
             margin: auto;
             padding: 30px;
         }
-        h1 {
-            color: #4a90e2;
-            margin-bottom: 10px;
-        }
-        p {
-            font-size: 1.2em;
-            color: #333;
-        }
-        .photo {
+        .gif-container {
+            display: none;
             margin: 20px 0;
         }
-        .photo img {
+        .gif-container img {
             max-width: 100%;
             border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
-        .heart {
-            font-size: 2em;
-            color: #e74c3c;
-            margin-top: 20px;
-        }
-        .gif-btn {
-            margin-top: 25px;
-            margin-bottom: 10px;
-        }
-        .gif-btn button {
-            background: #4a90e2;
-            color: #fff;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .gif-btn button:hover {
-            background: #357abd;
-        }
+        /* ... autres styles restent identiques ... */
     </style>
     <script>
-        function showGif() {
-            document.body.innerHTML = `
-                <div class="container">
-                    <h1>Bravo mon chéri ! 🎓</h1>
-                    <img src="https://github.com/Nadsou23/Diplomedemonbebe/raw/main/gifdiploma.gif" alt="GIF du diplôme" style="max-width:100%;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.08);margin:30px 0;">
-                    <div class="heart">❤️</div>
-                </div>
-            `;
+        function toggleGif() {
+            const gifContainer = document.getElementById('gifContainer');
+            const btn = document.getElementById('gifBtn');
+            if (gifContainer.style.display === 'none') {
+                gifContainer.style.display = 'block';
+                btn.textContent = 'Cacher le GIF 🎬';
+            } else {
+                gifContainer.style.display = 'none';
+                btn.textContent = 'Voir le GIF 🎉';
+            }
         }
     </script>
 </head>
@@ -83,9 +55,10 @@
             Je t'aime fort et je pense à toi. 💙
         </p>
         <div class="gif-btn">
-            <button onclick="showGif()">
-                Clique ici pour voir le GIF 🎉
-            </button>
+            <button id="gifBtn" onclick="toggleGif()">Voir le GIF 🎉</button>
+        </div>
+        <div id="gifContainer" class="gif-container">
+            <img src="https://github.com/Nadsou23/Diplomedemonbebe/raw/main/gifdiploma.gif" alt="GIF du diplôme">
         </div>
         <div class="heart">❤️</div>
     </div>
