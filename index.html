@@ -4,137 +4,13 @@
     <meta charset="UTF-8">
     <title>Félicitations Mon Chéri !</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
-            font-family: 'Montserrat', sans-serif;
-            min-height: 100vh;
-            margin: 0;
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .container {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            max-width: 600px;
-            margin: auto;
-            padding: 40px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #c5a47e, #dfbd95);
-        }
-
-        h1 {
-            font-family: 'Cormorant Garamond', serif;
-            color: #2c2c2c;
-            font-size: 2.5em;
-            margin-bottom: 30px;
-            letter-spacing: 1px;
-            position: relative;
-        }
-
-        h1::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 2px;
-            background: #c5a47e;
-            margin: 15px auto;
-        }
-
-        .photo {
-            margin: 30px 0;
-            position: relative;
-        }
-
-        .photo img {
-            max-width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .photo img:hover {
-            transform: scale(1.02);
-        }
-
-        p {
-            font-size: 1.1em;
-            color: #444;
-            line-height: 1.8;
-            margin: 25px 0;
-        }
-
-        .gif-btn button {
-            background: linear-gradient(135deg, #c5a47e, #dfbd95);
-            color: white;
-            border: none;
-            padding: 15px 35px;
-            border-radius: 50px;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Montserrat', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin: 20px 0;
-            box-shadow: 0 4px 15px rgba(197, 164, 126, 0.2);
-        }
-
-        .gif-btn button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(197, 164, 126, 0.3);
-        }
-
-        .surprise-container {
-            display: none;
-            margin: 20px 0;
-            animation: fadeIn 1s ease-in;
-        }
-
-        .gif-container img {
-            max-width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-
-        .heart {
-            font-size: 2.5em;
-            color: #c5a47e;
-            margin: 20px 0;
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-    </style>
+    <!-- ...existing styles... -->
 </head>
 <body>
     <div class="container">
         <h1>Félicitations mon chéri</h1>
         <div class="photo">
-            <img src="https://raw.githubusercontent.com/Nadsou23/Diplomedemonbebe/3b0c34c24552c16a057e5ef783a426451b7eeaf2/monbebe.png>
+            <img src="https://raw.githubusercontent.com/Nadsou23/Diplomedemonbebe/3b0c34c24552c16a057e5ef783a426451b7eeaf2/monbebe.png" alt="Photo de remise de diplôme">
         </div>
         <p>
             Même si je suis loin aujourd'hui,<br>
@@ -154,21 +30,14 @@
     </div>
 
     <script>
-        window.onload = function() {
+        // S'assurer que la surprise est cachée au chargement
+        document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('surpriseContainer').style.display = 'none';
-        }
+        });
         
         function toggleGif() {
             const container = document.getElementById('surpriseContainer');
             const btn = document.getElementById('gifBtn');
             if (container.style.display === 'none') {
                 container.style.display = 'block';
-                btn.textContent = '♡ Cacher la surprise ♡';
-            } else {
-                container.style.display = 'none';
-                btn.textContent = '♡ Voir la surprise ♡';
-            }
-        }
-    </script>
-</body>
-</html>
+                btn.textContent = '♡
