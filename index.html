@@ -6,10 +6,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <style>
-        /* Styles existants */
-        /* ... garder tous les styles précédents ... */
+        /* ... styles précédents ... */
 
-        /* Nouveaux styles pour l'enveloppe */
         .envelope {
             width: 300px;
             height: 200px;
@@ -26,17 +24,6 @@
             transform: scale(1.05);
         }
 
-        .envelope:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,0 L50,50 L100,0" fill="none" stroke="%23ffffff44" stroke-width="2"/></svg>') center no-repeat;
-            background-size: contain;
-        }
-
         .envelope-text {
             position: absolute;
             width: 100%;
@@ -49,7 +36,7 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
 
-        #content {
+        #mainContent {
             display: none;
         }
 
@@ -59,27 +46,47 @@
     </style>
 </head>
 <body>
+    <!-- Enveloppe -->
     <div id="envelope" class="envelope" onclick="openEnvelope()">
         <div class="envelope-text">
             Clique pour ouvrir ♡
         </div>
     </div>
 
-    <div id="content">
-        <!-- Tout le contenu précédent ici -->
+    <!-- Contenu principal -->
+    <div id="mainContent">
         <div class="container">
-            <!-- ... tout le contenu précédent ... -->
+            <h1>Félicitations mon chéri</h1>
+            <div class="photo">
+                <img src="https://raw.githubusercontent.com/Nadsou23/Diplomedemonbebe/3b0c34c24552c16a057e5ef783a426451b7eeaf2/monbebe.png" alt="Photo de remise de diplôme">
+            </div>
+            <p>
+                Qui aurait cru que ce petit bout de chou deviendrait un jour l'homme brillant et déterminé que tu es aujourd'hui ? <br>
+                Chaque moment de ton parcours montre combien tu es talentueux et courageux, et je suis tellement fière de toi. <br>
+                Aujourd'hui, tu célèbres ta réussite ! 
+            </p>
+            <div class="gif-btn">
+                <button id="gifBtn" onclick="toggleGif()">♡ Voir la surprise ♡</button>
+            </div>
+            <div class="surprise-container" id="surpriseContainer">
+                <div class="gif-container">
+                    <img src="https://raw.githubusercontent.com/Nadsou23/Diplomedemonbebe/main/gifdiploma.gif" alt="GIF du diplôme">
+                </div>
+                <div class="heart-container">
+                    <div class="heart">❤️</div>
+                    <span class="heart-text">T'ES LE MEILLEUR !</span>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
         function openEnvelope() {
             const envelope = document.getElementById('envelope');
-            const content = document.getElementById('content');
+            const content = document.getElementById('mainContent');
             
             envelope.style.display = 'none';
             content.style.display = 'block';
-            content.classList.add('fade-in');
             
             // Confettis à l'ouverture
             confetti({
@@ -90,13 +97,42 @@
             });
         }
 
-        // Le reste du JavaScript précédent
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('surpriseContainer').style.display = 'none';
         });
         
         function toggleGif() {
-            // ... code précédent pour toggleGif ...
+            const container = document.getElementById('surpriseContainer');
+            const btn = document.getElementById('gifBtn');
+            if (container.style.display === 'none') {
+                container.style.display = 'block';
+                btn.textContent = '♡ Cacher la surprise ♡';
+                
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 },
+                    colors: ['#c5a47e', '#dfbd95', '#FFD700', '#gold']
+                });
+                
+                setTimeout(() => {
+                    confetti({
+                        particleCount: 50,
+                        angle: 60,
+                        spread: 55,
+                        origin: { x: 0 }
+                    });
+                    confetti({
+                        particleCount: 50,
+                        angle: 120,
+                        spread: 55,
+                        origin: { x: 1 }
+                    });
+                }, 150);
+            } else {
+                container.style.display = 'none';
+                btn.textContent = '♡ Voir la surprise ♡';
+            }
         }
     </script>
 </body>
