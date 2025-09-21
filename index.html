@@ -2,20 +2,22 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Félicitations mon amour 🎓❤️</title>
+  <title>Félicitations mon amour 🎓💙</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
+      font-family: 'Roboto', sans-serif;
       text-align: center;
-      background: #f9f7f7;
+      background: linear-gradient(135deg, #ffe6f0, #fff);
       overflow-x: hidden;
     }
 
     h1 {
-      margin-top: 50px;
+      margin-top: 40px;
       font-size: 2.5rem;
-      color: #333;
+      color: #ff4d6d;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     }
 
     button {
@@ -23,36 +25,38 @@
       padding: 15px 25px;
       font-size: 18px;
       border: none;
-      border-radius: 10px;
-      background: #ff5f8f;
+      border-radius: 50px;
+      background: linear-gradient(45deg, #ff4d6d, #ff85a1);
       color: white;
       cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       transition: 0.3s;
     }
 
     button:hover {
-      background: #ff2d6f;
+      background: linear-gradient(45deg, #ff2d6f, #ff5f8f);
       transform: scale(1.05);
     }
 
     /* ✉️ Enveloppe */
     .envelope {
       position: relative;
-      width: 300px;
+      width: 320px;
       height: 200px;
       margin: 60px auto;
       perspective: 1000px;
       display: none;
     }
 
-    .envelope .flap {
+    .flap {
       position: absolute;
       width: 100%;
       height: 100%;
-      background: #ffcad4;
+      background: linear-gradient(135deg, #ff85a1, #ffcad4);
       clip-path: polygon(0 0, 100% 0, 50% 50%);
       transform-origin: top;
-      transition: transform 1s;
+      transition: transform 1.2s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
     .envelope.open .flap {
@@ -69,24 +73,31 @@
       padding: 20px;
       box-sizing: border-box;
       opacity: 0;
-      transition: opacity 1s;
+      transform: translateY(50px);
+      transition: opacity 1s, transform 1s;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
       z-index: -1;
     }
 
     .envelope.open .letter {
       opacity: 1;
+      transform: translateY(0);
       z-index: 1;
     }
 
     .letter p {
-      font-size: 16px;
-      color: #444;
+      font-family: 'Great Vibes', cursive;
+      font-size: 28px;
+      color: #ff4d6d;
+      margin: 0;
     }
 
     .letter img {
-      margin-top: 10px;
+      margin-top: 15px;
       max-width: 100%;
-      border-radius: 10px;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
     }
 
     /* 🎓 Chapeau */
@@ -109,7 +120,6 @@
       position: fixed;
       width: 10px;
       height: 10px;
-      background: red;
       top: -10px;
       animation: fallConfetti 3s linear infinite;
     }
@@ -118,39 +128,52 @@
       0% { transform: translateY(0) rotate(0deg); }
       100% { transform: translateY(100vh) rotate(720deg); }
     }
+
+    /* 💖 Cœurs flottants */
+    .heart {
+      position: fixed;
+      bottom: 0;
+      color: #ff4d6d;
+      font-size: 20px;
+      animation: floatUp 5s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+    }
   </style>
 </head>
 <body>
 
-  <h1>🎓 Félicitations mon amour ❤️</h1>
-  <button onclick="showEnvelope()">Ouvre ta lettre</button>
+  <h1>🎓 Félicitations mon amour 💙</h1>
+  <button onclick="showEnvelope()">💌 Ouvre ta lettre</button>
 
   <div class="envelope" id="envelope">
     <div class="flap"></div>
     <div class="letter">
-      <p>Mon amour, même si je ne suis pas à tes côtés aujourd'hui, je suis si fière de toi.  
-      Félicitations pour ton diplôme 🎓.  
-      Tu es mon inspiration et je t’aime plus que tout ❤️</p>
-      <!-- Tu peux remplacer cette image par une tienne -->
-      <img src="https://via.placeholder.com/200x250.png?text=Moi+💋" alt="Photo de moi">
+      <p>Mon amour, aujourd’hui tu reçois ton diplôme 🎓  
+      et je suis si fière de toi 💙  
+      Même à distance, je célèbre avec toi ✨  
+      Je t’aime infiniment 💕</p>
+      <img src="https://via.placeholder.com/220x280.png?text=Moi+💋" alt="Photo de moi">
     </div>
   </div>
 
   <div class="hat">🎓</div>
 
   <script>
-    // 🎉 Confettis aléatoires
+    // 🎉 Confettis
     function createConfetti() {
       const confetti = document.createElement("div");
       confetti.classList.add("confetti");
       confetti.style.left = Math.random() * window.innerWidth + "px";
       confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
       confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      confetti.style.width = confetti.style.height = (Math.random() * 8 + 4) + "px";
       document.body.appendChild(confetti);
-
       setTimeout(() => { confetti.remove(); }, 5000);
     }
-
     setInterval(createConfetti, 200);
 
     // ✉️ Ouvrir enveloppe
@@ -160,6 +183,18 @@
         document.getElementById("envelope").classList.add("open");
       }, 200);
     }
+
+    // 💖 Cœurs
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+      heart.innerHTML = "❤️";
+      document.body.appendChild(heart);
+      setTimeout(() => { heart.remove(); }, 5000);
+    }
+    setInterval(createHeart, 800);
   </script>
 </body>
 </html>
