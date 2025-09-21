@@ -2,12 +2,12 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Pour Mon Chéri ❤️</title>
+    <title>Pour Toi Mon Chéri ❤️</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <style>
         /* Styles existants */
-        /* ... existing code ... */
+        /* ... garder tous les styles précédents ... */
 
         /* Nouveaux styles pour l'enveloppe */
         .envelope {
@@ -17,114 +17,87 @@
             margin: 50px auto;
             cursor: pointer;
             position: relative;
-            border-radius: 0 0 20px 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .envelope:hover {
+            transform: scale(1.05);
         }
 
         .envelope:before {
             content: '';
             position: absolute;
             top: 0;
-            width: 0;
-            height: 0;
-            border-left: 150px solid transparent;
-            border-right: 150px solid transparent;
-            border-top: 100px solid #dfbd95;
-            transform-origin: top;
-            transition: all 0.4s ease;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,0 L50,50 L100,0" fill="none" stroke="%23ffffff44" stroke-width="2"/></svg>') center no-repeat;
+            background-size: contain;
         }
 
-        .envelope:after {
-            content: '';
+        .envelope-text {
             position: absolute;
-            top: 0;
-            width: 0;
-            height: 0;
-            border-left: 150px solid transparent;
-            border-right: 150px solid transparent;
-            border-top: 100px solid #c5a47e;
-            transform-origin: top;
-            transition: all 0.4s ease;
-            z-index: 2;
+            width: 100%;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
 
-        .letter {
-            position: absolute;
-            background: #fff;
-            width: 280px;
-            height: 180px;
-            top: 10px;
-            left: 10px;
-            transition: all 0.4s ease;
-            z-index: 1;
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .letter:before {
-            content: '❤️ Clique pour ouvrir ❤️';
-            font-family: 'Montserrat', sans-serif;
-            color: #c5a47e;
-            font-size: 1.2em;
-        }
-
-        .envelope.open:before {
-            transform: rotateX(180deg);
-            z-index: 0;
-        }
-
-        .envelope.open:after {
-            transform: rotateX(180deg);
-            z-index: 0;
-        }
-
-        .envelope.open .letter {
-            transform: translateY(-100px);
-            height: auto;
-        }
-
-        .content {
+        #content {
             display: none;
         }
 
-        .envelope.open + .content {
-            display: block;
-            animation: fadeIn 1s ease;
+        .fade-in {
+            animation: fadeIn 1s ease-in;
         }
     </style>
 </head>
 <body>
-    <div class="envelope" onclick="openEnvelope(this)">
-        <div class="letter"></div>
+    <div id="envelope" class="envelope" onclick="openEnvelope()">
+        <div class="envelope-text">
+            Clique pour ouvrir ♡
+        </div>
     </div>
-    <div class="content">
-        <!-- Contenu existant -->
+
+    <div id="content">
+        <!-- Tout le contenu précédent ici -->
         <div class="container">
-            <!-- ... existing code ... -->
+            <!-- ... tout le contenu précédent ... -->
         </div>
     </div>
 
     <script>
-        function openEnvelope(envelope) {
-            if (!envelope.classList.contains('open')) {
-                envelope.classList.add('open');
-                setTimeout(() => {
-                    envelope.style.display = 'none';
-                    // Lance les confettis à l'ouverture
-                    confetti({
-                        particleCount: 100,
-                        spread: 70,
-                        origin: { y: 0.6 },
-                        colors: ['#c5a47e', '#dfbd95', '#FFD700', '#gold']
-                    });
-                }, 1000);
-            }
+        function openEnvelope() {
+            const envelope = document.getElementById('envelope');
+            const content = document.getElementById('content');
+            
+            envelope.style.display = 'none';
+            content.style.display = 'block';
+            content.classList.add('fade-in');
+            
+            // Confettis à l'ouverture
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#c5a47e', '#dfbd95', '#FFD700']
+            });
         }
 
-        // ... existing script code ...
+        // Le reste du JavaScript précédent
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('surpriseContainer').style.display = 'none';
+        });
+        
+        function toggleGif() {
+            // ... code précédent pour toggleGif ...
+        }
     </script>
 </body>
 </html>
