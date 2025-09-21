@@ -1,167 +1,83 @@
+<!-- Félicitations Remise de Diplôme -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>Félicitations Royale 💖🎓</title>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-<style>
-  body {
-    margin: 0;
-    font-family: 'Playfair Display', serif;
-    background: radial-gradient(circle at top, #2b1a0f, #1a0f05);
-    color: #fff8e7;
-    text-align: center;
-    overflow-x: hidden;
-  }
-
-  h1 {
-    margin-top: 50px;
-    font-family: 'Great Vibes', cursive;
-    font-size: 3rem;
-    color: #f8d67e;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-  }
-
-  button {
-    margin-top: 30px;
-    padding: 15px 40px;
-    font-size: 20px;
-    border: none;
-    border-radius: 40px;
-    background: linear-gradient(45deg, #b4863e, #ffd57e);
-    color: #2b1a0f;
-    cursor: pointer;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
-    transition: 0.3s;
-    font-weight: bold;
-  }
-
-  button:hover {
-    transform: scale(1.1);
-    background: linear-gradient(45deg, #ffd57e, #f8d67e);
-  }
-
-  .envelope {
-    position: relative;
-    width: 500px;
-    height: 320px;
-    margin: 60px auto;
-    perspective: 1200px;
-    display: none;
-  }
-
-  .flap {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #6b1f1f, #b53f3f);
-    clip-path: polygon(0 0, 100% 0, 50% 50%);
-    transform-origin: top;
-    transition: transform 1.5s;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.5);
-    border: 3px solid #f8d67e;
-    border-bottom: none;
-    z-index: 2;
-  }
-
-  .envelope.open .flap {
-    transform: rotateX(-180deg);
-  }
-
-  .letter {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(180deg, #fff8e7 0%, #f9f1dc 100%);
-    padding: 40px 30px;
-    box-sizing: border-box;
-    opacity: 0;
-    transform: translateY(60px);
-    transition: opacity 1.5s, transform 1.5s;
-    border-radius: 15px;
-    border: 4px solid #f8d67e;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-    z-index: 1;
-    overflow: hidden;
-  }
-
-  .envelope.open .letter {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .letter p {
-    font-family: 'Great Vibes', cursive;
-    font-size: 32px;
-    color: #6b1f1f;
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-
-  .letter img {
-    max-width: 100%;
-    max-height: 70%;
-    border-radius: 15px;
-    border: 3px solid #f8d67e;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-    display: none; /* GIF caché au départ */
-    margin: 0 auto;
-  }
-
-  .seal {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    background: radial-gradient(circle at 30% 30%, #f8d67e 0%, #b4863e 80%);
-    border-radius: 50%;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    box-shadow: 0 0 15px rgba(248,214,126,0.8);
-    animation: pulse 2s infinite;
-    z-index: 3;
-  }
-
-  @keyframes pulse {
-    0%,100% { transform: translateX(-50%) scale(1); }
-    50% { transform: translateX(-50%) scale(1.1); }
-  }
-</style>
+    <meta charset="UTF-8">
+    <title>Félicitations Mon Chéri !</title>
+    <style>
+        body {
+            background: #f9f6f2;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            text-align: center;
+            padding: 40px;
+        }
+        .container {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: auto;
+            padding: 30px;
+        }
+        h1 {
+            color: #4a90e2;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.2em;
+            color: #333;
+        }
+        .photo {
+            margin: 20px 0;
+        }
+        .photo img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .heart {
+            font-size: 2em;
+            color: #e74c3c;
+            margin-top: 20px;
+        }
+        .gif-btn {
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        .gif-btn button {
+            background: #4a90e2;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .gif-btn button:hover {
+            background: #357abd;
+        }
+    </style>
 </head>
 <body>
-
-<h1>🎓 Félicitations Royale 💖</h1>
-<button onclick="openEnvelope()">Ouvre ta lettre Royale 💌</button>
-
-<div class="envelope" id="envelope">
-  <div class="flap"></div>
-  <div class="letter">
-    <p>Mon amour, aujourd’hui tu reçois ton diplôme 🎓<br>
-    Et je célèbre chaque instant avec toi, même à distance 💖<br>
-    Tu es mon roi, mon trésor, et je t’aime infiniment 👑</p>
-    
-    <!-- GIF caché au départ -->
-    <img id="diplomaGif" src="https://github.com/Nadsou23/Diplomedemonbebe/raw/main/gifdiploma.gif" alt="GIF du diplôme">
-    
-    <button onclick="showGif()" style="margin-top:20px; padding:10px 20px; font-size:18px; border-radius:20px; background:linear-gradient(45deg,#b4863e,#ffd57e); border:none; cursor:pointer;">Voir mon GIF 💖</button>
-
-    <div class="seal"></div>
-  </div>
-</div>
-
-<script>
-  // Ouvrir enveloppe
-  function openEnvelope() {
-    document.getElementById("envelope").style.display = "block";
-    setTimeout(() => { document.getElementById("envelope").classList.add("open"); }, 200);
-  }
-
-  // Afficher GIF après clic
-  function showGif() {
-    document.getElementById("diplomaGif").style.display = "block";
-  }
-</script>
+    <div class="container">
+        <h1>Félicitations mon chéri ! 🎓</h1>
+        <div class="photo">
+            <!-- Remplace le lien ci-dessous par celui de ta photo sur GitHub -->
+            <img src="https://github.com/ton-utilisateur/ton-repo/raw/main/WhatsApp%20Image%202025-09-09%20at%2016.52.58.jpeg" alt="Photo de remise de diplôme">
+        </div>
+        <p>
+            Même si je suis loin aujourd'hui,<br>
+            je suis tellement fière de toi et de tout ce que tu as accompli.<br>
+            Bravo pour ta cérémonie de remise de diplôme !<br>
+            Je t'aime fort et je pense à toi. 💙
+        </p>
+        <div class="gif-btn">
+            <button onclick="window.open('https://github.com/Nadsou23/Diplomedemonbebe/raw/main/gifdiploma.gif', '_blank')">
+                Clique ici pour voir le GIF 🎉
+            </button>
+        </div>
+        <div class="heart">❤️</div>
+    </div>
 </body>
 </html>
