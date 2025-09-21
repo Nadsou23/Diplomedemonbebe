@@ -41,7 +41,6 @@
     background: linear-gradient(45deg, #ffd57e, #f8d67e);
   }
 
-  /* Enveloppe royale */
   .envelope {
     position: relative;
     width: 500px;
@@ -107,25 +106,10 @@
     border-radius: 15px;
     border: 3px solid #f8d67e;
     box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-    display: block;
+    display: none; /* GIF caché au départ */
     margin: 0 auto;
   }
 
-  /* Cœurs flottants */
-  .heart {
-    position: fixed;
-    bottom: 0;
-    color: #f8d67e;
-    font-size: 20px;
-    animation: floatUp 6s linear infinite;
-  }
-
-  @keyframes floatUp {
-    0% { transform: translateY(0) scale(1); opacity:1; }
-    100% { transform: translateY(-100vh) scale(1.5); opacity:0; }
-  }
-
-  /* Sceau de cire */
   .seal {
     position: absolute;
     width: 60px;
@@ -157,28 +141,26 @@
     <p>Mon amour, aujourd’hui tu reçois ton diplôme 🎓<br>
     Et je célèbre chaque instant avec toi, même à distance 💖<br>
     Tu es mon roi, mon trésor, et je t’aime infiniment 👑</p>
-    <img src="https://github.com/Nadsou23/Diplomedemonbebe/raw/main/gifdiploma.gif" alt="GIF du diplôme">
+    
+    <!-- GIF caché au départ -->
+    <img id="diplomaGif" src="https://github.com/Nadsou23/Diplomedemonbebe/raw/main/gifdiploma.gif" alt="GIF du diplôme">
+    
+    <button onclick="showGif()" style="margin-top:20px; padding:10px 20px; font-size:18px; border-radius:20px; background:linear-gradient(45deg,#b4863e,#ffd57e); border:none; cursor:pointer;">Voir mon GIF 💖</button>
+
     <div class="seal"></div>
   </div>
 </div>
 
 <script>
-  // Cœurs flottants
-  function createHeart() {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.style.left = Math.random() * window.innerWidth + "px";
-    heart.style.fontSize = (Math.random() * 20 + 15) + "px";
-    heart.innerHTML = "❤️";
-    document.body.appendChild(heart);
-    setTimeout(() => { heart.remove(); }, 6000);
-  }
-  setInterval(createHeart, 700);
-
   // Ouvrir enveloppe
   function openEnvelope() {
     document.getElementById("envelope").style.display = "block";
     setTimeout(() => { document.getElementById("envelope").classList.add("open"); }, 200);
+  }
+
+  // Afficher GIF après clic
+  function showGif() {
+    document.getElementById("diplomaGif").style.display = "block";
   }
 </script>
 </body>
