@@ -134,7 +134,7 @@
     <div class="container">
         <h1>Félicitations mon chéri</h1>
         <div class="photo">
-            <img src="https://raw.githubusercontent.com/Nadsou23/Diplomedemonbebe/02b27de8e4f5bc4445df8c0458f7d8b033abd2c8/monbebe.png" alt="Photo de remise de diplôme">
+            <img src="https://raw.githubusercontent.com/Nadsou23/Diplomedemonbebe/main/monbebe.jpg" alt="Photo de remise de diplôme">
         </div>
         <p>
             Même si je suis loin aujourd'hui,<br>
@@ -147,13 +147,17 @@
         </div>
         <div class="surprise-container" id="surpriseContainer">
             <div class="gif-container">
-                <img src="https://github.com/Nadsou23/Diplomedemonbebe/raw/main/gifdiploma.gif" alt="GIF du diplôme">
+                <img src="https://raw.githubusercontent.com/Nadsou23/Diplomedemonbebe/main/gifdiploma.gif" alt="GIF du diplôme">
             </div>
             <div class="heart">❤️</div>
         </div>
     </div>
 
     <script>
+        window.onload = function() {
+            document.getElementById('surpriseContainer').style.display = 'none';
+        }
+        
         function toggleGif() {
             const container = document.getElementById('surpriseContainer');
             const btn = document.getElementById('gifBtn');
