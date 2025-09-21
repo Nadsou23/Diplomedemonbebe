@@ -8,7 +8,7 @@
     body {
       margin: 0;
       font-family: 'Playfair Display', serif;
-      background: linear-gradient(135deg, #2b1a0f, #4b2e1f);
+      background: radial-gradient(circle at top, #2b1a0f, #1a0f05);
       overflow-x: hidden;
       color: #fff8e7;
       text-align: center;
@@ -19,35 +19,35 @@
       font-family: 'Great Vibes', cursive;
       font-size: 3rem;
       color: #f8d67e;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
     }
 
     button {
       margin-top: 30px;
-      padding: 15px 30px;
+      padding: 15px 40px;
       font-size: 20px;
       border: none;
-      border-radius: 30px;
+      border-radius: 40px;
       background: linear-gradient(45deg, #b4863e, #ffd57e);
       color: #2b1a0f;
       cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
       transition: 0.3s;
       font-weight: bold;
     }
 
     button:hover {
-      transform: scale(1.08);
+      transform: scale(1.1);
       background: linear-gradient(45deg, #ffd57e, #f8d67e);
     }
 
     /* Enveloppe Royale */
     .envelope {
       position: relative;
-      width: 350px;
-      height: 220px;
+      width: 450px;
+      height: 300px;
       margin: 60px auto;
-      perspective: 1000px;
+      perspective: 1200px;
       display: none;
     }
 
@@ -60,8 +60,9 @@
       transform-origin: top;
       transition: transform 1.5s;
       box-shadow: 0 6px 15px rgba(0,0,0,0.5);
-      border: 2px solid #f8d67e;
+      border: 3px solid #f8d67e;
       border-bottom: none;
+      z-index: 2;
     }
 
     .envelope.open .flap {
@@ -75,42 +76,42 @@
       width: 100%;
       height: 100%;
       background: linear-gradient(180deg, #fff8e7 0%, #f9f1dc 100%);
-      padding: 25px;
+      padding: 40px 30px;
       box-sizing: border-box;
       opacity: 0;
-      transform: translateY(50px);
+      transform: translateY(60px);
       transition: opacity 1.5s, transform 1.5s;
-      border-radius: 10px;
-      border: 3px solid #f8d67e;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-      z-index: -1;
+      border-radius: 15px;
+      border: 4px solid #f8d67e;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+      z-index: 1;
+      overflow: hidden;
     }
 
     .envelope.open .letter {
       opacity: 1;
       transform: translateY(0);
-      z-index: 1;
     }
 
     .letter p {
       font-family: 'Great Vibes', cursive;
-      font-size: 26px;
+      font-size: 32px;
       color: #6b1f1f;
       line-height: 1.6;
+      margin: 0 0 20px 0;
     }
 
-  .letter img {
-  margin-top: 15px;
-  max-width: 100%;      /* prend presque toute la largeur de la lettre */
-  max-height: 80%;      /* prend jusqu'à 80% de la hauteur de la lettre */
-  border-radius: 12px;
-  border: 3px solid #f8d67e;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
+    .letter img {
+      margin-top: 15px;
+      max-width: 100%;
+      max-height: 70%;
+      border-radius: 15px;
+      border: 3px solid #f8d67e;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
     /* Paillettes dorées */
     .sparkle {
@@ -146,15 +147,16 @@
     /* Sceau de cire */
     .seal {
       position: absolute;
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
       background: radial-gradient(circle at 30% 30%, #f8d67e 0%, #b4863e 80%);
       border-radius: 50%;
       bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
-      box-shadow: 0 0 10px rgba(248,214,126,0.7);
+      box-shadow: 0 0 15px rgba(248,214,126,0.8);
       animation: pulse 2s infinite;
+      z-index: 3;
     }
 
     @keyframes pulse {
