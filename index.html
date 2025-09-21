@@ -1,4 +1,4 @@
-<!-- Félicitations Remise de Diplôme -->
+<!-- Félicitations Remise de Diplôme avec affichage du GIF sur la même page -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -58,12 +58,22 @@
             background: #357abd;
         }
     </style>
+    <script>
+        function showGif() {
+            document.body.innerHTML = `
+                <div class="container">
+                    <h1>Bravo mon chéri ! 🎓</h1>
+                    <img src="https://github.com/Nadsou23/Diplomedemonbebe/raw/main/gifdiploma.gif" alt="GIF du diplôme" style="max-width:100%;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.08);margin:30px 0;">
+                    <div class="heart">❤️</div>
+                </div>
+            `;
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <h1>Félicitations mon chéri ! 🎓</h1>
         <div class="photo">
-            <!-- Remplace le lien ci-dessous par celui de ta photo sur GitHub -->
             <img src="https://github.com/ton-utilisateur/ton-repo/raw/main/WhatsApp%20Image%202025-09-09%20at%2016.52.58.jpeg" alt="Photo de remise de diplôme">
         </div>
         <p>
@@ -73,7 +83,7 @@
             Je t'aime fort et je pense à toi. 💙
         </p>
         <div class="gif-btn">
-            <button onclick="window.open('https://github.com/Nadsou23/Diplomedemonbebe/raw/main/gifdiploma.gif', '_blank')">
+            <button onclick="showGif()">
                 Clique ici pour voir le GIF 🎉
             </button>
         </div>
