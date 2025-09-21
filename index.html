@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Félicitations Mon Chéri !</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <style>
         body {
             background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
@@ -212,6 +213,30 @@
             if (container.style.display === 'none') {
                 container.style.display = 'block';
                 btn.textContent = '♡ Cacher la surprise ♡';
+                
+                // Confettis
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 },
+                    colors: ['#c5a47e', '#dfbd95', '#FFD700', '#gold']
+                });
+                
+                // Deuxième vague de confettis
+                setTimeout(() => {
+                    confetti({
+                        particleCount: 50,
+                        angle: 60,
+                        spread: 55,
+                        origin: { x: 0 }
+                    });
+                    confetti({
+                        particleCount: 50,
+                        angle: 120,
+                        spread: 55,
+                        origin: { x: 1 }
+                    });
+                }, 150);
             } else {
                 container.style.display = 'none';
                 btn.textContent = '♡ Voir la surprise ♡';
