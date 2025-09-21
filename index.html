@@ -125,12 +125,30 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
 
+        .heart-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            text-align: center;
+            width: 100%;
+        }
+
         .heart {
             font-size: 2.5em;
             color: #c5a47e;
-            margin: 20px 0;
-            text-align: center;
             animation: pulse 1.5s infinite;
+        }
+
+        .heart-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5em;
+            color: #c5a47e;
+            font-style: italic;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
         }
 
         @keyframes fadeIn {
@@ -176,10 +194,10 @@
             <div class="gif-container">
                 <img src="https://raw.githubusercontent.com/Nadsou23/Diplomedemonbebe/main/gifdiploma.gif" alt="GIF du diplôme">
             </div>
-               <div class="heart-container">
-                    <div class="heart">❤️</div>
-                    <span class="heart-text">T'es le meilleur</span>
-              </div>
+            <div class="heart-container">
+                <div class="heart">❤️</div>
+                <span class="heart-text">T'ES LE MEILLEUR !</span>
+            </div>
         </div>
     </div>
 
